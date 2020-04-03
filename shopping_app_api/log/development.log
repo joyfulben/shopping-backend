@@ -1,0 +1,231 @@
+  [1m[35m (223.5ms)[0m  [1m[35mCREATE DATABASE "shopping_app_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (138.9ms)[0m  [1m[35mCREATE DATABASE "shopping_app_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (23.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (24.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6096250325357123505)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200403151846)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (25.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "money" decimal(8,2), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200403151846"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCarts (20200403152123)
+  [1m[35m (5.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (19.0ms)[0m  [1m[35mCREATE TABLE "carts" ("id" bigserial primary key, "item" character varying, "price" decimal(8,2), "origin" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200403152123"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-03 15:22:45.953536"], ["updated_at", "2020-04-03 15:22:45.953536"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6096250325357123505)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Slimer"], ["money", "1000.0"], ["created_at", "2020-04-03 15:28:38.822297"], ["updated_at", "2020-04-03 15:28:38.822297"]]
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Skeletor"], ["money", "1000.0"], ["created_at", "2020-04-03 15:28:38.830260"], ["updated_at", "2020-04-03 15:28:38.830260"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Dame Edna"], ["money", "1000.0"], ["created_at", "2020-04-03 15:28:38.833876"], ["updated_at", "2020-04-03 15:28:38.833876"]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cousin It"], ["money", "1000.0"], ["created_at", "2020-04-03 15:28:38.841942"], ["updated_at", "2020-04-03 15:28:38.841942"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Boomhauer"], ["money", "1000.0"], ["created_at", "2020-04-03 15:28:38.845990"], ["updated_at", "2020-04-03 15:28:38.845990"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Molly Ringwald"], ["money", "1000.0"], ["created_at", "2020-04-03 15:28:38.850623"], ["updated_at", "2020-04-03 15:28:38.850623"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Vander Von Odd"], ["money", "1000.0"], ["created_at", "2020-04-03 15:28:38.854268"], ["updated_at", "2020-04-03 15:28:38.854268"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "James A. Garfield"], ["money", "1000.0"], ["created_at", "2020-04-03 15:28:38.857703"], ["updated_at", "2020-04-03 15:28:38.857703"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Krang"], ["money", "123456.78"], ["created_at", "2020-04-03 15:28:38.861372"], ["updated_at", "2020-04-03 15:28:38.861372"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Carl Sagan"], ["money", "1000.53"], ["created_at", "2020-04-03 15:28:38.864768"], ["updated_at", "2020-04-03 15:28:38.864768"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Slimer"], ["money", "1000.0"], ["created_at", "2020-04-03 15:29:40.843694"], ["updated_at", "2020-04-03 15:29:40.843694"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Skeletor"], ["money", "1000.0"], ["created_at", "2020-04-03 15:29:40.848350"], ["updated_at", "2020-04-03 15:29:40.848350"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Dame Edna"], ["money", "1000.0"], ["created_at", "2020-04-03 15:29:40.851581"], ["updated_at", "2020-04-03 15:29:40.851581"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cousin It"], ["money", "1000.0"], ["created_at", "2020-04-03 15:29:40.855089"], ["updated_at", "2020-04-03 15:29:40.855089"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Boomhauer"], ["money", "1000.0"], ["created_at", "2020-04-03 15:29:40.858988"], ["updated_at", "2020-04-03 15:29:40.858988"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Molly Ringwald"], ["money", "1000.0"], ["created_at", "2020-04-03 15:29:40.862674"], ["updated_at", "2020-04-03 15:29:40.862674"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Vander Von Odd"], ["money", "1000.0"], ["created_at", "2020-04-03 15:29:40.866355"], ["updated_at", "2020-04-03 15:29:40.866355"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "James A. Garfield"], ["money", "1000.0"], ["created_at", "2020-04-03 15:29:40.869905"], ["updated_at", "2020-04-03 15:29:40.869905"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Krang"], ["money", "123456.78"], ["created_at", "2020-04-03 15:29:40.873533"], ["updated_at", "2020-04-03 15:29:40.873533"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Carl Sagan"], ["money", "1000.53"], ["created_at", "2020-04-03 15:29:40.878263"], ["updated_at", "2020-04-03 15:29:40.878263"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Create (0.7ms)[0m  [1m[32mINSERT INTO "carts" ("item", "price", "origin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["item", "Oil"], ["price", "53.28"], ["origin", "walmart"], ["created_at", "2020-04-03 15:29:40.889437"], ["updated_at", "2020-04-03 15:29:40.889437"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Create (0.2ms)[0m  [1m[32mINSERT INTO "carts" ("item", "price", "origin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["item", "Gold"], ["price", "1216.7"], ["origin", "target"], ["created_at", "2020-04-03 15:29:40.893592"], ["updated_at", "2020-04-03 15:29:40.893592"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO "carts" ("item", "price", "origin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["item", "Natural Gas"], ["price", "3.17"], ["origin", "costco"], ["created_at", "2020-04-03 15:29:40.897685"], ["updated_at", "2020-04-03 15:29:40.897685"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO "carts" ("item", "price", "origin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["item", "Copper"], ["price", "2.65"], ["origin", "walmart"], ["created_at", "2020-04-03 15:29:40.901821"], ["updated_at", "2020-04-03 15:29:40.901821"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Create (0.2ms)[0m  [1m[32mINSERT INTO "carts" ("item", "price", "origin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["item", "Gasoline"], ["price", "1.6"], ["origin", "walmart"], ["created_at", "2020-04-03 15:29:40.905088"], ["updated_at", "2020-04-03 15:29:40.905088"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO "carts" ("item", "price", "origin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["item", "Silver"], ["price", "17.95"], ["origin", "costco"], ["created_at", "2020-04-03 15:29:40.908344"], ["updated_at", "2020-04-03 15:29:40.908344"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Create (0.2ms)[0m  [1m[32mINSERT INTO "carts" ("item", "price", "origin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["item", "Wheat"], ["price", "428.2"], ["origin", "costco"], ["created_at", "2020-04-03 15:29:40.911757"], ["updated_at", "2020-04-03 15:29:40.911757"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO "carts" ("item", "price", "origin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["item", "Coffee"], ["price", "153.2"], ["origin", "target"], ["created_at", "2020-04-03 15:29:40.916142"], ["updated_at", "2020-04-03 15:29:40.916142"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO "carts" ("item", "price", "origin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["item", "Lumber"], ["price", "325.5"], ["origin", "target"], ["created_at", "2020-04-03 15:29:40.920199"], ["updated_at", "2020-04-03 15:29:40.920199"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Create (0.2ms)[0m  [1m[32mINSERT INTO "carts" ("item", "price", "origin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["item", "Milk"], ["price", "16.77"], ["origin", "costco"], ["created_at", "2020-04-03 15:29:40.937350"], ["updated_at", "2020-04-03 15:29:40.937350"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users" for ::1 at 2020-04-03 08:30:40 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 8.8ms | ActiveRecord: 4.4ms | Allocations: 7021)
+
+
+Started GET "/users/carts" for ::1 at 2020-04-03 08:30:51 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"carts"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.5ms | Allocations: 1031)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=carts):
+  
+app/controllers/users_controller.rb:44:in `set_user'
+Started GET "/carts" for ::1 at 2020-04-03 08:30:59 -0700
+Processing by CartsController#index as HTML
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts"[0m
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 7.9ms | ActiveRecord: 3.2ms | Allocations: 6175)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6096250325357123505)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateShops (20200403153439)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (26.6ms)[0m  [1m[35mCREATE TABLE "shops" ("id" bigserial primary key, "user_id" bigint NOT NULL, "cart_id" bigint NOT NULL, "qty" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_bbda09dc47"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_875c2f766e"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_shops_on_user_id" ON "shops"  ("user_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_shops_on_cart_id" ON "shops"  ("cart_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200403153439"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6096250325357123505)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShop Create (19.6ms)[0m  [1m[32mINSERT INTO "shops" ("user_id", "cart_id", "qty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["cart_id", 1], ["qty", 1], ["created_at", "2020-04-03 15:43:17.406638"], ["updated_at", "2020-04-03 15:43:17.406638"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShop Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+Started GET "/carts" for ::1 at 2020-04-03 08:48:43 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CartsController#index as HTML
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT "carts".* FROM "carts"[0m
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 1]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 2]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 3]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 4]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 5]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 6]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 7]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 8]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 9]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 10]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+Completed 200 OK in 67ms (Views: 0.1ms | ActiveRecord: 13.2ms | Allocations: 29227)
+
+
+Started GET "/carts" for ::1 at 2020-04-03 08:50:33 -0700
+Processing by CartsController#index as HTML
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts"[0m
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 1]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 2]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 3]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 4]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 5]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 6]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 7]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 8]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 9]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 10]]
+  ↳ app/controllers/carts_controller.rb:8:in `index'
+Completed 200 OK in 61ms (Views: 0.1ms | ActiveRecord: 9.9ms | Allocations: 22452)
+
+
+Started GET "/carts/1" for ::1 at 2020-04-03 08:50:38 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:44:in `set_cart'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "shops" ON "users"."id" = "shops"."user_id" WHERE "shops"."cart_id" = $1[0m  [["cart_id", 1]]
+  ↳ app/controllers/carts_controller.rb:13:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 1922)
+
+
